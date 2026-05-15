@@ -1,0 +1,44 @@
+project:
+  name: "Premium Chocolate Analysis"
+  version: "1.0.0"
+  description: "What Makes a Premium Chocolate? — Product Quality, Pricing & Market Strategy Analysis"
+
+paths:
+  raw_data: "data/raw/chocolate_ratings.csv"
+  processed_data: "data/processed/chocolate_clean.csv"
+  featured_data: "data/processed/chocolate_featured.csv"
+  clustered_data: "data/processed/chocolate_clustered.csv"
+  charts_dir: "outputs/charts"
+  reports_dir: "outputs/reports"
+
+cleaning:
+  rating_min: 1.0
+  rating_max: 5.0
+  cocoa_min: 40
+  cocoa_max: 100
+  drop_duplicates: true
+
+feature_engineering:
+  premium_rating_threshold: 3.5
+  high_cocoa_threshold: 75
+  low_cocoa_threshold: 60
+  top_brand_quantile: 0.75
+  top_origin_quantile: 0.75
+
+clustering:
+  n_clusters: 3
+  random_state: 42
+  features:
+    - "cocoa_percent_clean"
+    - "rating"
+    - "review_year"
+
+eda:
+  top_n_brands: 15
+  top_n_origins: 15
+  top_n_countries: 15
+
+dashboard:
+  title: "Premium Chocolate Analytics Dashboard"
+  theme: "dark"
+  page_icon: "🍫"
